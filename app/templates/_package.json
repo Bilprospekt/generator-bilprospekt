@@ -1,0 +1,11 @@
+{
+    "name": "<%= name %>",
+    "version": "0.0.0",
+    "author" : "<%= userName %>"
+    "dependencies": {},
+    "browserify" : {
+        "transform" : [
+            ["reactify", {"stripTypes" : true, "es6" : true, "harmony" : true}]
+        ]
+    }
+}
