@@ -61,6 +61,7 @@ module.exports = yeoman.generators.Base.extend({
     },
     components : function() {
         this.mkdir('components');
+        this.mkdir('components/__tests__');
         this.fs.copyTpl(
             this.templatePath('_component.js'),
             this.destinationPath('components/' + this.props.name + '_component.js'),
@@ -70,6 +71,7 @@ module.exports = yeoman.generators.Base.extend({
     stores : function() {
         if(this.props.stores === true) {
             this.mkdir('stores');
+            this.mkdir('stores/__tests__');
             this.fs.copyTpl(
                 this.templatePath('_store.js'),
                 this.destinationPath('stores/' + this.props.name + '_store.js'),
