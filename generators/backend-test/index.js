@@ -37,28 +37,30 @@ module.exports = yeoman.generators.Base.extend({
       done();
     }.bind(this));
   },
-  typePrompting : function() {
+  dbPrompting : function() {
       var done = this.async();
       var props = this.props;
-      if(props.type === 'Model') {
-          this.prompt([
-            {
-              type: 'confirm',
-              name: 'mysql',
-              message: 'Will you use MySQL?',
-              default: true
-            },
-            {
-              type: 'confirm',
-              name: 'mongo',
-              message: 'Will you use MongoDB?',
-              default: true
-            }
-          ], function(values) {
-            this.props = _(this.props).extend(values);
-            done();
-          }.bind(this));
-      } else if(props.type === 'Router') {
+      this.prompt([
+        {
+          type: 'confirm',
+          name: 'mysql',
+          message: 'Will you use MySQL?',
+          default: true
+        },
+        {
+          type: 'confirm',
+          name: 'mongo',
+          message: 'Will you use MongoDB?',
+          default: true
+        }
+      ], function(values) {
+        this.props = _(this.props).extend(values);
+        done();
+      }.bind(this));
+  },
+  routePrompting : function() {
+    var done = this.async();
+    if(this.props.type === 'Router') {
         this.prompt([
             {
                 type : 'input',
@@ -70,9 +72,11 @@ module.exports = yeoman.generators.Base.extend({
             this.props = _(this.props).extend(values);
             done();
         }.bind(this));
-      }
-  },  
-  dbPrompting : function() {
+    } else {
+        done();
+    }
+  },
+  testValuesPrompting : function() {
       var done = this.async();
       var props = this.props;
       if((props.type === 'Model' && props.mongo || props.mysql) || props.type === 'Router') {
@@ -89,12 +93,9 @@ module.exports = yeoman.generators.Base.extend({
         done();
       }
   },
-
   writing: function () {
     var optionalProps = {
         testValues : false,
-        mysql : false,
-        mongo : false,
         route : ''
     };
     var path = (this.props.type === 'Model') ? 'model_test.js' : 'router_test.js';

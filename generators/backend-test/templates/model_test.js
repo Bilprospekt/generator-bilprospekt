@@ -23,7 +23,8 @@ describe('<%= capitalName %>', function() {
     <% if(mysql || mongo) { %>
     beforeEach(function(done) {
         Q.all([
-            <% if(mysql) { %>mysqlConnector.loadFixtures(),<% } %><% if(mongo) { %>mongo.loadFixtures(),<% } %>
+            <% if(mysql) { %>mysqlConnector.loadFixtures(),<% } %>
+            <% if(mongo) { %>mongo.loadFixtures(),<% } %>
         ]).then(function() {
             done();
         }).catch(function(err) {

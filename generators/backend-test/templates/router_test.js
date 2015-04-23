@@ -6,6 +6,12 @@ var express = require('express'),
 var app = express();
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
+<% if(mysql) { %>//Mysql
+var mysqlConnector = require("db/mysql_connector");<% } %>
+<% if(mongo) { %>//Mongo
+var mongo = require('db/mongo'),
+    mongodb = require('mongodb'), // Used when wrapper is not enough.
+    BSON = mongodb.BSONPure;<% } %> //To create an ObjectId - new BSON.ObjectID(id);
 <% if(testValues) {%>
 var testCompanyId = 5567268312, // A random companyId
     filialTestId = 6990836840, //A random filialCompanyId
@@ -25,8 +31,25 @@ app.use(function(req, res, next) {
 app.use('/<%= route %>', router);
 
 describe("<%= capitalRoute %> Router", function() {
-
-    //Remove me
+    <% if(mysql || mongo) { %>
+    beforeEach(function(done) {
+        Q.all([
+            <% if(mysql) { %>mysqlConnector.loadFixtures(),<% } %>
+            <% if(mongo) { %>mongo.loadFixtures(),<% } %>
+        ]).then(function() {
+            done();
+        }).catch(function(err) {
+            done(err);
+        });
+    });
+    <% } %>
+    <% if(mongo) { %>
+    afterEach(function(done){
+        mongo.clearDB(true).then(function() {
+            done();
+        });
+    });
+    <% } %>
     it("Handles GET call", function(done) {
         request(app)
         .get('/')
