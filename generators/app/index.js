@@ -35,10 +35,18 @@ module.exports = yeoman.generators.Base.extend({
       name: 'stores',
       message: 'Do you need stores and constants?',
       default: true
-    }];
+    },
+    {
+      type : 'confirm',
+      name : 'router',
+      message : 'Do you need a router?',
+      default: false
+    }
+    ];
 
     this.prompt(prompts, function (props) {
         props.capitalName = s(props.name).camelize().capitalize().value();
+        props.capitalizedName = props.name.toUpperCase();
       this.props = props;
       // To access props later use this.props.someOption;
 
@@ -85,6 +93,17 @@ module.exports = yeoman.generators.Base.extend({
             );
         }
 
+    },
+    router : function() {
+        if(this.props.router === true) {
+            this.mkdir('routes');
+            this.mkdir('routes/__tests__');
+            this.fs.copyTpl(
+                this.templatePath('_router.js'),
+                this.destinationPath('routes/' + this.props.name + '_router.js'),
+                this.props
+            );
+        }
     }
   }
 });
