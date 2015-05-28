@@ -1,8 +1,8 @@
-var router            = require("express").Router(),
-    _                 = require('underscore'),
-    Q                 = require('q'),
-    Errors            = require('errors'),
-    isAuthenticated   = require('helpers/is_authenticated');
+var router            = require("express").Router();
+var _                 = require('underscore');
+var Q                 = require('q');
+var Errors            = require('errors');
+var isAuthenticated   = require('helpers/is_authenticated');
 
 router.route('/')
 .all(isAuthenticated.rest)

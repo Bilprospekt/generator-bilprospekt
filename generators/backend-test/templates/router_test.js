@@ -1,7 +1,7 @@
-var express = require('express'),
-    request = require('supertest'),
-    bodyParser   = require('body-parser'),
-    router = require('../<%= name %>');
+var express = require('express');
+var request = require('supertest');
+var bodyParser   = require('body-parser');
+var router = require('../<%= name %>');
 
 var app = express();
 app.use(bodyParser.json()); // get information from html forms
@@ -9,16 +9,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 <% if(mysql) { %>//Mysql
 var mysqlConnector = require("db/mysql_connector");<% } %>
 <% if(mongo) { %>//Mongo
-var mongo = require('db/mongo'),
-    mongodb = require('mongodb'), // Used when wrapper is not enough.
-    BSON = mongodb.BSONPure;<% } %> //To create an ObjectId - new BSON.ObjectID(id);
+var mongo = require('db/mongo');
+var mongodb = require('mongodb'); // Used when wrapper is not enough.
+var BSON = mongodb.BSONPure;<% } %> //To create an ObjectId - new BSON.ObjectID(id);
 <% if(testValues) {%>
-var testCompanyId = 5567268312, // A random companyId
-    filialTestId = 6990836840, //A random filialCompanyId
-    personTestId = 6221669, //A random person
-    userTestId = 1, //The userId
-    dealerTestId = 1, //The dealerId of the user
-    savedListTestId = '54db82e15e1f82e38dbdf4a1'; //If you want more you can change last '1' to 2 or 3.
+var testCompanyId = 5567268312; // A random companyId
+var filialTestId = 6990836840; //A random filialCompanyId
+var personTestId = 6221669; //A random person
+var userTestId = 1; //The userId
+var dealerTestId = 1; //The dealerId of the user
+var savedListTestId = '54db82e15e1f82e38dbdf4a1'; //If you want more you can change last '1' to 2 or 3.
 <% } %>
 app.use(function(req, res, next) {
     req.user = {id : 1, dealer_id : 1, orgNr : 5560838251};

@@ -1,9 +1,9 @@
 /** @flow */
-var React = require("react"),
-    dispatcher = require("dispatchers/Context"),
-    routes = require("routes"),
-    <%= capitalName %>Constants = require("../constants/<%= name %>_constants"),
-    <%= capitalName %>Component = require("../components/<%= name %>_component");
+var React = require("react");
+var dispatcher = require("dispatchers/Context");
+var routes = require("routes");
+var <%= capitalName %>Constants = require("../constants/<%= name %>_constants");
+var <%= capitalName %>Component = require("../components/<%= name %>_component");
 
 var <%= capitalName %>Router = Backbone.Router.extend({
     initialize : function() {
