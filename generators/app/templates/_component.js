@@ -1,5 +1,3 @@
-/** @flow */
-
 var React = require('react');
 
 /**
@@ -13,11 +11,10 @@ var React = require('react');
  */
 var <%= capitalName %>Component = React.createClass({
     
-    render : function() : any {
+    render() {
         return null;
-    }
+    },
 
 });
-
 
 module.exports = <%= capitalName %>Component;

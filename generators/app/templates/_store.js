@@ -1,5 +1,3 @@
-/** @flow */
-
 var EventEmitter    = require("EventEmitter");
 var <%= capitalName %>Constants = require("../constants/<%= name %>_constants");
 
@@ -22,7 +20,7 @@ function <%= capitalName %>Store(dispatcher) : void {
 
 <%= capitalName %>Store.handlers = {};
 
-<%= capitalName %>Store.prototype.getState = function() : Object {
+<%= capitalName %>Store.prototype.getState = function() {
     return {
 
     };
