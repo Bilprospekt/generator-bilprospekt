@@ -4,11 +4,11 @@ var TestUtils = React.addons.TestUtils;
 
 describe('<%= capitalName %>', function() {
 
-    beforeEach(function() { 
+    beforeEach(function() {
         this.instance  = TestUtils.renderIntoDocument(<<%= capitalName %> />);
     });
     
-    it('renders', function(done) {
+    it('renders', function() {
         
     });
 
