@@ -7,9 +7,9 @@ describe('<%= capitalName %>', function() {
     beforeEach(function() {
         this.instance  = TestUtils.renderIntoDocument(<<%= capitalName %> />);
     });
-    
+
     it('renders', function() {
-        
+
     });
 
 });
