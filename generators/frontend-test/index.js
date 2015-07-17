@@ -17,7 +17,7 @@ module.exports = yeoman.generators.Base.extend({
     var prompts = [
     {
         type : 'list',
-        choices : ['Component'],
+        choices : ['Component', 'Store'],
         default : 'Component',
         name : 'type',
         message : 'What will we be testing?'
@@ -37,47 +37,26 @@ module.exports = yeoman.generators.Base.extend({
       done();
     }.bind(this));
   },
-  routePrompting : function() {
-    var done = this.async();
-    if(this.props.type === 'Router') {
-        this.prompt([
-            {
-                type : 'input',
-                name : 'route',
-                message : 'What is the name of the route you\'ll use?'
-            }
-        ], function(values) {
-            values.capitalRoute = s(values.route).camelize().capitalize().value();
-            this.props = _(this.props).extend(values);
-            done();
-        }.bind(this));
-    } else {
-        done();
-    }
-  },
-  testValuesPrompting : function() {
-      var done = this.async();
-      var props = this.props;
-      if(false) {
-        this.prompt({
-          type : 'confirm',
-          name : 'testValues',
-          message : 'Should I add some testValues that you can use?',
-          default : true
-        }, function(values) {
-            this.props = _(this.props).extend(values);
-            done();
-        }.bind(this))
-      } else {
-        done();
-      }
-  },
   writing: function () {
     var optionalProps = {
         testValues : false,
         route : ''
     };
-    var path = (this.props.type === 'Component') ? 'component_test.js' : null;
+    var path = null;
+  
+    if (this.props.type === 'Component') {
+      path = 'component_test.js';
+    } else if (this.props.type === 'Store') {
+      path = 'store_test.js';
+
+      var capitalMainName = this.props.capitalName.replace(/_?store/i, '');
+      var mainName = this.props.name.replace(/_?store/i, '');
+      _(this.props).extend({
+        capitalMainName: capitalMainName,
+        mainName: mainName
+      });
+    }
+
     if(!path) return;
     this.fs.copyTpl(
       this.templatePath(path),
