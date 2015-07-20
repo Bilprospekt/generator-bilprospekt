@@ -9,7 +9,12 @@ var mysqlConnector = require("db/mysql_connector");<% } %>
 <% if(mongo) { %>//Mongo
 var mongo = require('db/mongo');
 var mongodb = require('mongodb'); // Used when wrapper is not enough.
-var BSON = mongodb.BSONPure;<% } %> //To create an ObjectId - new BSON.ObjectID(id);
+var BSON = mongodb.BSONPure; //To create an ObjectId - new BSON.ObjectID(id);
+<% } %> 
+<% if(elastic) {%>//Elastic
+var ElasticModel = require('elastic'); //Helper model
+var client = require('db/elastic'); //The client you should query to.
+<% } %>
 <% if(testValues) {%>//TestValues
 var testCompanyId = 5567268312; // A random companyId
 var filialTestId = 6990836840; //A random filialCompanyId

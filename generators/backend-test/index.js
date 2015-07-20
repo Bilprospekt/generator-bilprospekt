@@ -52,6 +52,12 @@ module.exports = yeoman.generators.Base.extend({
           name: 'mongo',
           message: 'Will you use MongoDB?',
           default: true
+        },
+        {
+          type: 'confirm',
+          name: 'elastic',
+          message: 'Will you use ElasticSearch?',
+          default: true,
         }
       ], function(values) {
         this.props = _(this.props).extend(values);
@@ -79,7 +85,7 @@ module.exports = yeoman.generators.Base.extend({
   testValuesPrompting : function() {
       var done = this.async();
       var props = this.props;
-      if((props.type === 'Model' && props.mongo || props.mysql) || props.type === 'Router') {
+      if((props.type === 'Model' && (props.mongo || props.mysql || props.elastic)) || props.type === 'Router') {
         this.prompt({
           type : 'confirm',
           name : 'testValues',
@@ -94,11 +100,12 @@ module.exports = yeoman.generators.Base.extend({
       }
   },
   writing: function () {
-    var optionalProps = {
-        testValues : false,
-        route : ''
-    };
     var path = (this.props.type === 'Model') ? 'model_test.js' : 'router_test.js';
+    var optionalProps = {
+      testValues: false,
+      route: '',
+    };
+    this.props = _(optionalProps).extend(this.props);
     this.fs.copyTpl(
       this.templatePath(path),
       this.destinationPath(this.props.name + '.test.js'),
