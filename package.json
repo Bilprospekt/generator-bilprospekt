@@ -28,5 +28,6 @@
   },
   "devDependencies": {
     "mocha": "*"
-  }
+  },
+  "private": true
 }

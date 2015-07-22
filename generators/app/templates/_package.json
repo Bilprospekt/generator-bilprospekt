@@ -8,5 +8,6 @@
         "transform" : [
             ["reactify", {"stripTypes" : true, "es6" : true, "harmony" : true}]
         ]
-    }
+    },
+    "private": true
 }
