@@ -26,7 +26,7 @@ Yeoman travels light. He didn't pack any generators when he moved in. You can th
 To install generator-bilprospekt from npm, run:
 (Note that the generator is not published to npm so you'll have to install from the folder)
 
-*Note* This is a private package, and therefore not published in npm.
+**Note** This is a private package, and therefore not published in npm.
 You'll need to clone the repo and then link it or install it globally.
 
 ```bash
@@ -49,7 +49,7 @@ yo bilprospekt:backend-router #Creates a backend-router
 yo bilprospekt:backend-test #Creates a backend test. Router or Model.
 ```
 
-Look inside *generators* folder for or
+Look inside *generators* folder for more info.
 
 ### Getting To Know Yeoman
 
