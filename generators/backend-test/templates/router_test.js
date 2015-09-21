@@ -2,6 +2,9 @@ var express = require('express');
 var request = require('supertest');
 var bodyParser   = require('body-parser');
 var router = require('../<%= name %>');
+var Q = require('q');
+var should = require('should');
+var _ = require('underscore');
 
 var app = express();
 app.use(bodyParser.json()); // get information from html forms
@@ -22,7 +25,7 @@ var savedListTestId = '54db82e15e1f82e38dbdf4a1'; //If you want more you can cha
 <% } %>
 app.use(function(req, res, next) {
     req.user = {
-      id: 1, dealer_id: 1, orgNr: 5560838251,
+        id: 1, dealer_id: 1, orgNr: 5560838251,
     };
 
     req.isAuthenticated = function() {
