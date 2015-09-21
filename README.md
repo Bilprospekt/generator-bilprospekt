@@ -1,7 +1,7 @@
-# generator-bilprospekt [![Build Status](https://secure.travis-ci.org/br0r/generator-bilprospekt.png?branch=master)](https://travis-ci.org/br0r/generator-bilprospekt)
+# generator-bilprospekt 
 
-> [Yeoman](http://yeoman.io) generator
-
+Yeoman generator for bilprospekt.
+Feel free to extend, with pull requests or forks.
 
 ## Getting Started
 
@@ -35,6 +35,18 @@ Finally, initiate the generator:
 ```bash
 yo bilprospekt
 ```
+
+### Commands to use
+
+All commands creates files in current folder
+```bash
+yo bilprospekt #Creates a frontend package
+yo bilprospekt:frontend-test #Creates a frontend-test
+yo bilprospekt:backend-router #Creates a backend-router
+yo bilprospekt:backend-test #Creates a backend test. Router or Model.
+```
+
+Look inside *generators* folder for or
 
 ### Getting To Know Yeoman
 
