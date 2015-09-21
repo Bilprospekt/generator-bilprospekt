@@ -1,0 +1,77 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/opt/nvm/versions/node/v0.12.5/bin/node',
+1 verbose cli   '/usr/local/opt/nvm/versions/node/v0.12.5/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@2.11.2
+3 info using node@v0.12.5
+4 verbose node symlink /usr/local/opt/nvm/versions/node/v0.12.5/bin/node
+5 verbose publish [ '.' ]
+6 silly cache add args [ '.', null ]
+7 verbose cache add spec .
+8 silly cache add parsed spec { raw: '.',
+8 silly cache add   scope: null,
+8 silly cache add   name: null,
+8 silly cache add   rawSpec: '.',
+8 silly cache add   spec: '/Users/bror/workspace/generator-bilprospekt',
+8 silly cache add   type: 'directory' }
+9 verbose addLocalDirectory /Users/bror/.npm/generator-bilprospekt/1.1.4/package.tgz not in flight; packing
+10 verbose tar pack [ '/Users/bror/.npm/generator-bilprospekt/1.1.4/package.tgz',
+10 verbose tar pack   '/Users/bror/workspace/generator-bilprospekt' ]
+11 verbose tarball /Users/bror/.npm/generator-bilprospekt/1.1.4/package.tgz
+12 verbose folder /Users/bror/workspace/generator-bilprospekt
+13 info prepublish generator-bilprospekt@1.1.4
+14 verbose addLocalTarball adding from inside cache /Users/bror/.npm/generator-bilprospekt/1.1.4/package.tgz
+15 silly cache afterAdd generator-bilprospekt@1.1.4
+16 verbose afterAdd /Users/bror/.npm/generator-bilprospekt/1.1.4/package/package.json not in flight; writing
+17 verbose afterAdd /Users/bror/.npm/generator-bilprospekt/1.1.4/package/package.json written
+18 silly publish { name: 'generator-bilprospekt',
+18 silly publish   version: '1.1.4',
+18 silly publish   description: 'Yeoman generator',
+18 silly publish   license: 'UNLICENSED',
+18 silly publish   main: 'app/index.js',
+18 silly publish   repository:
+18 silly publish    { type: 'git',
+18 silly publish      url: 'git+https://github.com/br0r/generator-bilprospekt.git' },
+18 silly publish   author: { name: 'Viktor Silfverström', url: 'https://github.com/br0r' },
+18 silly publish   scripts: { test: 'mocha' },
+18 silly publish   files: [ 'app' ],
+18 silly publish   keywords: [ 'yeoman-generator' ],
+18 silly publish   dependencies:
+18 silly publish    { chalk: '^1.0.0',
+18 silly publish      underscore: '^1.8.3',
+18 silly publish      'underscore.string': '^3.0.3',
+18 silly publish      'yeoman-generator': '^0.19.0',
+18 silly publish      yosay: '^1.0.2' },
+18 silly publish   devDependencies: { mocha: '*' },
+18 silly publish   private: true,
+18 silly publish   readme: '# generator-bilprospekt \n\nYeoman generator for bilprospekt.\nFeel free to extend, with pull requests or forks.\n\n## Getting Started\n\n### What is Yeoman?\n\nTrick question. It\'s not a thing. It\'s this guy:\n\n![](http://i.imgur.com/JHaAlBJ.png)\n\nBasically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.\n\nNot every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*\n\n```bash\nnpm install -g yo\n```\n\n### Yeoman Generators\n\nYeoman travels light. He didn\'t pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.\n\nTo install generator-bilprospekt from npm, run:\n(Note that the generator is not published to npm so you\'ll have to install from the folder)\n\n```bash\nnpm install -g generator-bilprospekt\n```\n\nFinally, initiate the generator:\n\n```bash\nyo bilprospekt\n```\n\n### Commands to use\n\nAll commands creates files in current folder\n```bash\nyo bilprospekt #Creates a frontend package\nyo bilprospekt:frontend-test #Creates a frontend-test\nyo bilprospekt:backend-router #Creates a backend-router\nyo bilprospekt:backend-test #Creates a backend test. Router or Model.\n```\n\nLook inside *generators* folder for or\n\n### Getting To Know Yeoman\n\nYeoman has a heart of gold. He\'s a person with feelings and opinions, but he\'s very easy to work with. If you think he\'s too opinionated, he can be easily convinced.\n\nIf you\'d like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).\n\n\n## License\n\nMIT\n',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: '9ad2a169afb9a3d71e2c62fd88a81bccebfdd1da',
+18 silly publish   bugs: { url: 'https://github.com/br0r/generator-bilprospekt/issues' },
+18 silly publish   homepage: 'https://github.com/br0r/generator-bilprospekt#readme',
+18 silly publish   _id: 'generator-bilprospekt@1.1.4',
+18 silly publish   _shasum: 'ffdeb4f1114dcfb25fac9b80d94f79aaee46ec85',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 verbose stack Error: This package has been marked as private
+20 verbose stack Remove the 'private' field from the package.json to publish it.
+20 verbose stack     at publish_ (/usr/local/Cellar/nvm/0.24.0/versions/node/v0.12.5/lib/node_modules/npm/lib/publish.js:98:5)
+20 verbose stack     at Array.<anonymous> (/usr/local/Cellar/nvm/0.24.0/versions/node/v0.12.5/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+20 verbose stack     at LOOP (/usr/local/Cellar/nvm/0.24.0/versions/node/v0.12.5/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+20 verbose stack     at LOOP (/usr/local/Cellar/nvm/0.24.0/versions/node/v0.12.5/lib/node_modules/npm/node_modules/slide/lib/chain.js:14:28)
+20 verbose stack     at chain (/usr/local/Cellar/nvm/0.24.0/versions/node/v0.12.5/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+20 verbose stack     at /usr/local/Cellar/nvm/0.24.0/versions/node/v0.12.5/lib/node_modules/npm/lib/publish.js:73:5
+20 verbose stack     at RES (/usr/local/Cellar/nvm/0.24.0/versions/node/v0.12.5/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+20 verbose stack     at f (/usr/local/Cellar/nvm/0.24.0/versions/node/v0.12.5/lib/node_modules/npm/node_modules/once/once.js:17:25)
+20 verbose stack     at /usr/local/Cellar/nvm/0.24.0/versions/node/v0.12.5/lib/node_modules/npm/lib/cache.js:350:14
+20 verbose stack     at /usr/local/Cellar/nvm/0.24.0/versions/node/v0.12.5/lib/node_modules/npm/node_modules/write-file-atomic/index.js:29:15
+21 verbose cwd /Users/bror/workspace/generator-bilprospekt
+22 error Darwin 14.5.0
+23 error argv "/usr/local/opt/nvm/versions/node/v0.12.5/bin/node" "/usr/local/opt/nvm/versions/node/v0.12.5/bin/npm" "publish"
+24 error node v0.12.5
+25 error npm  v2.11.2
+26 error This package has been marked as private
+26 error Remove the 'private' field from the package.json to publish it.
+27 error If you need help, you may report this error at:
+27 error     <https://github.com/npm/npm/issues>
+28 verbose exit [ 1, true ]
