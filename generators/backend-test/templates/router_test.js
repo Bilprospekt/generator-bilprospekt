@@ -36,7 +36,44 @@ app.use(function(req, res, next) {
 
 app.use('/<%= route %>', router);
 
+<% if (socket) { %>
+//Socket
+var ioClient = require('socket.io-client');
+var socketUrl = 'http://localhost:5000';
+
+var http = require('http');
+var server = http.createServer(app);
+server.listen.apply(server, [5000]);
+var io = require('socket.io')(server);
+
+var eventEmitter = require('helpers/event_emitter');
+
+eventEmitter.on('update', function(payload) {
+    io.to(payload.userId).emit('update', payload.update);
+});
+
+io.on('connection', function(socket) {
+    socket.on('register', function(userId) {
+        if (userId) {
+            socket.join(userId);
+        }
+    });
+});
+
+//The client to listen on.
+var client;
+<% } %>
+
 describe('<%= capitalRoute %> Router', function() {
+    <% if(socket) { %>
+    before(function(done) {
+        client = ioClient.connect(socketUrl);
+        client.on('connect', function() {
+            client.emit('register', 1);
+            done();
+        });
+    });
+    <% } %>
     <% if(mysql || mongo) { %>
     beforeEach(function(done) {
         Q.all([
@@ -48,11 +85,21 @@ describe('<%= capitalRoute %> Router', function() {
             done(err);
         });
     });<% } %>
-    <% if(mongo) { %>
+    <% if (socket || mongo) { %>
     afterEach(function(done){
+      <% if (socket) { %>
+        client.off('update');
+      <% } %>
+      <% if (mongo) { %>
         mongo.clearDB(true).then(function() {
             done();
         });
+      <% } %>
+    });
+    <% } %>
+    <% if (socket) { %>
+    after(function() {
+      client.off('connect');
     });
     <% } %>
     it('Handles GET call', function(done) {

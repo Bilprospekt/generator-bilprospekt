@@ -58,6 +58,12 @@ module.exports = yeoman.generators.Base.extend({
           name: 'elastic',
           message: 'Will you use ElasticSearch?',
           default: true,
+        },
+        {
+          type: 'confirm',
+          name: 'socket',
+          message: 'Will you use socket.io?',
+          default: false,
         }
       ], function(values) {
         this.props = _(this.props).extend(values);
